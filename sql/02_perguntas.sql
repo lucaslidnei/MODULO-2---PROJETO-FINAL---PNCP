@@ -12,7 +12,7 @@ USE pncp_controladoria;
    governo (diferença entre valor estimado e valor homologado)?
    
    Volume homologado total: R$ 8.044.498.805,74
-   Valor estimado: R$ 6.868.091.000,00
+   Valor estimado da base comparável: R$ 6.867.663.469,91
    Valor financeiro economizado: R$ 992.861.686,95
    Percentual de economia: 14,46% 
 */
@@ -88,7 +88,9 @@ LIMIT 10;
    Concorrência - Presencial   R$  32.381.222,93	              6,79%
    Dispensa	                   R$   1.874.083,49	              4,49%
    Pregão - Presencial	       R$         583,29	              0,02%
-   Credenciamento	           R$           0,00	              0,00%	
+   Credenciamento	           R$           0,00	     Não aplicável (NULL)
+
+   Credenciamento não possui itens comparáveis; sua economia percentual é NULL.
 
 */
 SELECT
@@ -114,7 +116,8 @@ ORDER BY economia_percentual DESC, volume_homologado DESC, d.modalidade_id;
    Pergunta: Qual a duração média (em dias) entre o lançamento do edital e a sua 
    homologação final, segmentada por órgão?
 
-   Varia de 0 a 266 dias
+   As médias dos órgãos com pelo menos cinco ciclos válidos variam de 0 a 266,3 dias.
+   O maior ciclo individual da base é de 611 dias.
 */
 SELECT
     d.nome_orgao,
